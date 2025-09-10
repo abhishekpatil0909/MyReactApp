@@ -1,0 +1,69 @@
+/* StudentHome.css */
+.student-home {
+  background-image: url('https://images.unsplash.com/photo-1584697964154-b28a2ec2b0b9?auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 600px;
+  animation: slideIn 0.8s ease-in-out;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #2e3a59;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.btn-view {
+  padding: 12px 28px;
+  font-size: 1rem;
+  background: #4a90e2;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-view:hover {
+  background: #357ab8;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

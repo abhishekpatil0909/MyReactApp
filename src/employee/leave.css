@@ -1,0 +1,265 @@
+/* leave.css */
+
+.leave-calendar-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f4f7fa, #dfe9f3);
+  min-height: 90vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calendar-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(189, 31, 31, 0.15);
+  max-width: 550px;
+  width: 100%;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-card h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.react-calendar {
+  border: none;
+  width: 100%;
+  background: transparent;
+  padding: 10px;
+}
+
+/* Base calendar tile style */
+.react-calendar__tile {
+  height: 50px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 10px;
+  font-weight: 500;
+  margin: 4px; /* 🔄 Increase margin to avoid touching */
+  padding: 6px; /* Optional: Add some inner space */
+  box-sizing: border-box; /* ✅ Ensures padding & border count in size */
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr); /* Ensures proper spacing */
+  gap: 4px; /* 🔄 Adds space between tiles */
+}
+.react-calendar__tile:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔵 Today’s date */
+.highlight-today {
+  background-color: #cce5ff !important;
+  color: #004085 !important;
+  font-weight: bold;
+}
+
+/* 🩷 Pending leave */
+.highlight-pending {
+  background-color: #8b004f !important;
+  color: #f5c8d4 !important;
+  font-weight: bold;
+  border: 1px solid #a8005a;
+  box-shadow: 0 0 4px rgba(139, 0, 79, 0.3);
+}
+
+/* 🟡 Approved leave */
+.highlight-approved {
+  background-color: #e8c349 !important;
+  color: #4a3e19 !important;
+  font-weight: bold;
+  border: 1px solid #c0a32e;
+  box-shadow: 0 0 4px rgba(232, 195, 73, 0.4);
+}
+
+/* 🔴 Rejected leave */
+.highlight-rejected {
+  background-color: #ffcdd2 !important;
+  color: #ec0000 !important;
+  font-weight: bold;
+  border: 1px solid #e57373;
+  box-shadow: 0 0 4px rgba(255, 205, 210, 0.3);
+}
+
+/* 🟦 Selected date to apply for leave */
+.highlight-selected {
+  background-color: #bbdefb !important;
+  color: #0961e7 !important;
+  font-weight: bold;
+  border: 1px solid #64b5f6;
+}
+
+/* 🔴 Legacy (optional fallback) */
+.highlight-leave {
+  background-color: #fddede !important;
+  color: #11f105;
+  font-weight: bold;
+}
+/* Leave form styles */
+
+.leave-type-dropdown {
+  appearance: none;
+  background-color: #1e1e2f;
+  color: #fff;
+  border: 2px solid #3a3a5a;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  outline: none;
+  position: relative;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23fff' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+/* On hover */
+.leave-type-dropdown:hover {
+  border-color: #7f5af0;
+  box-shadow: 0 0 10px #7f5af0cc;
+}
+
+/* On focus */
+.leave-type-dropdown:focus {
+  border-color: #00ffd5;
+  box-shadow: 0 0 15px #00ffd580;
+}
+
+/* Animate dropdown opening */
+.leave-type-dropdown option {
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 10px;
+  transition: background 0.3s ease;
+}
+
+.leave-type-dropdown option:hover {
+  background-color: #2d2d44;
+}
+
+/* For better animation on open in some browsers */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: scaleY(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+
+/* Leave reason textarea */
+.reason-textarea {
+  width: 100%;
+  margin-top: 1.5rem;
+  height: 90px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  resize: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.reason-textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.reason-textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #00796b;
+  box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+}
+
+/* Submit button */
+.submit-leave-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.6rem 1.5rem;
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-leave-btn:hover {
+  background-color: #004d40;
+}
+
+.submit-leave-btn.disabled,
+.submit-leave-btn:disabled {
+  background-color: #a0c8ff; /* Light blue */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submit-leave-btn.disabled:hover,
+.submit-leave-btn:disabled:hover {
+  background-color: #a0c8ff; /* Keep same color on hover */
+}
+
+/* Tooltip for leave info */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
